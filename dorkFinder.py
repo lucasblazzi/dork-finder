@@ -1,6 +1,6 @@
 from googlesearch import search
 import argparse
-from DorkFinder import cat_dork_list
+from updateDorks import cat_dork_list
 
 
 def search_dork(target, dork_list):
@@ -29,8 +29,10 @@ def restricted_search(target, word):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("target", help="target, ex: example.com")
-    parser.add_argument("word", help="word restriction, ex: admin")
+    #parser.add_argument("word", help="word restriction, ex: admin")
 
     args = parser.parse_args()
-
-    restricted_search(args.target, args.word)
+    if args.target:
+        full_search(args.target)
+    #elif args.target and args.word:
+    #    restricted_search(args.target, args.word)
